@@ -1,0 +1,34 @@
+to do list. anything marked with // is not either currently relevant and considered low priority or a comment
+
+1 - create decks of cards
+shuffle and deal capability
+
+2 - create generic player class and three subclasses
+player { starts with set $$, actions taken from command line input }
+dealer { "infinite" $$, actions stick to house rules set in options }
+AI { player set $$, empty shell player (uses dealer strategy) //some skills will be added later }
+
+3 - after functionality three player classes and deck are functional
+write the game runner that cycles through a list of players and executes their turns until bust/quit
+
+4 - after player-dealer only gameplay is functional
+write driver class with newgame options and howtoplay
+
+5 - after driver class is functional
+creat ai strategy & ai menu
+create options menu
+
+6 - add game type option
+
+7 - optimize deck{} with self shuffles & resets, maybe save states
+
+8 - add tables menu, convert game state data into text to store
+
+9 - add instructions and demo round
+
+10 - add login and account creation capability
+store data in csv file
+
+11 - add an extra credits/cool info tab - who knows
+
+12 - if we reach here and have optimized our code to the best of our abilities (unlikely) then we can implement different game runners for other card games, perhaps cards. in theory this should be easy because the game runner is the only class that will have anything related to blackjack specifically
