@@ -1,4 +1,4 @@
-to do list. anything marked with // is not either currently relevant and considered low priority or a comment
+To Do List
 
 1 - create decks of cards
 shuffle and deal capability
