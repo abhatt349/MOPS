@@ -1,3 +1,8 @@
+Team MOPS (members: Aryan Bhatt & Haiyao Liu)
+APCS1 pd3
+HW57 -- ...and Keeping It Pointed Up
+2016-01-10
+
 To Do List
 
 1 - create decks of cards
