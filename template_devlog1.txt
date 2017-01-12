@@ -1,16 +1,10 @@
-<Team Name>
-<Member 0 Name>
-<Member 1 Name>
-<Member 2 Name>
-pd <pd#>
+MOPS
+Aryan Bhatt
+Haiyao Liu
+pd 3
 ---------------------
-<Project>
+Blackjack
 
-
-Suggested usage: 
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete these instructions once all teammates understand usage.
 
 devlog--
 Use keyboard shortcut to jump to end,
@@ -27,7 +21,7 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wow we so BOSS bc...
+We made a successful UML diagram!!!
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,10 +52,22 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
-
-yyyy-mm-dd
+2016-01-05
 --------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
+Both :: wrote proposal (more Haiyao)
+==============================================================
+2016-01-09
+--------------------------------------------------------------
+Both :: Fixed proposal (added TC and MVP) (more Aryan)
+Both :: Attempted (and failed) to make a UML diagram (more Aryan)
+==============================================================
+2016-01-10
+--------------------------------------------------------------
+Both :: Wrote todo.txt (more Haiyao)
+Both :: Created flowchart to visually represent the state of the driver method throughout the game. (more Haiyao)
+==============================================================
+2016-01-11
+--------------------------------------------------------------
+Both :: Started filling out devlog (more Aryan)
+Aryan :: updated gitignore.txt file
 ==============================================================
