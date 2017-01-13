@@ -24,8 +24,12 @@ public class MVP {
 	d.print();
 	String c = check();
 	if(!c.equals("c")) return c;
+<<<<<<< HEAD
 	String p = player();
 	if(!p.equals("c")) return p;
+=======
+	if (!player()) {return check();} 
+>>>>>>> 287108064be7709cf8300dd2ed1de845b52f5681
 	c = check();
 	if(!c.equals("c")) return c;
 	String dd = dealer();
@@ -33,15 +37,26 @@ public class MVP {
 	return end();
     }
 
+<<<<<<< HEAD
     public static String player() {
+=======
+    public static boolean player() {
+>>>>>>> 287108064be7709cf8300dd2ed1de845b52f5681
 	System.out.println("\nblackjack: turn start");
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();
+<<<<<<< HEAD
 	    String c = check();
 	    if(!c.equals("c")) return c;
 	}
 	return "c";
+=======
+	    if(!check().equals("c")) return false;
+	    else {return true;}
+	}
+	    return true;
+>>>>>>> 287108064be7709cf8300dd2ed1de845b52f5681
     }
 
     public static String dealer() {
