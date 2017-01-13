@@ -9,10 +9,13 @@ public class MVP {
 	    int bet = Integer.parseInt(p.input("bet # - positive integers you can afford")); 
 	    System.out.println("round start");
 	    round();
+	    p.reset();
+	    d.reset();
 	}
     }
 
     public static String round() {	    
+	d.shuffle();
 	for(int i = 0; i < 2; i++) {
 	    d.add(_d.deal());
 	    p.add(_d.deal());
