@@ -1,5 +1,5 @@
-import Keyboard.java;
-
+import cs1.Keyboard;
+import Deck;
 public class Dealer {
     public String cards;
     public void Dealer () {
@@ -13,6 +13,7 @@ public class Dealer {
 	System.out.println("Dealer money: "+money+"\nCards: "+cards);
     }
     public int sum() {
+    }
 	
 }
 
