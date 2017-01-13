@@ -6,8 +6,10 @@ public class Deck {
     public void Deck(int num) {
 	cards = new String[num*52];
 	int i = 0;
-	for (String val: {"A","2","3","4","5","6","7","8","9","10","J","Q","K"}) {
-	    for (String suit: {"d","c","h","s"}) {
+	String[] vals = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+	String[] suits = {"d","c","h","s"};
+	for (String val: vals) {
+	    for (String suit: suits) {
 		cards[i] = val+suit;
 		i += 1;
 	    }
