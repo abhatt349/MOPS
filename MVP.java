@@ -41,6 +41,7 @@ public class MVP {
 	    String c = check();
 	    if(!c.equals("c")) return c;
 	}
+	p.print();
 	return "c";
     }
 
@@ -53,6 +54,8 @@ public class MVP {
 	    String c = check();
 	    if(!c.equals("c")) return c;
 	}
+	System.out.println("dealer: stand");
+	d.print();
 	return "c";
     }
     
@@ -86,7 +89,7 @@ public class MVP {
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
-	    System.out.println("blackjack: you lose");
+	    System.out.println("blackjack: dealer has more. you lose");
 	    return "d";
 	}
 	return "????";
