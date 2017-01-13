@@ -12,3 +12,7 @@ public class Dealer {
     public void print() {
 	System.out.println("Dealer money: "+money+"\nCards: "+cards);
     }
+    public int sum() {
+	
+}
+
