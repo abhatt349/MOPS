@@ -1,4 +1,5 @@
-import Keyboard.java;
+import cs1.Keyboard;
+import Deck;
 
 public class Player {
     public String cards;
