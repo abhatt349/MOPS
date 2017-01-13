@@ -4,64 +4,80 @@ public class MVP {
     public static Player p = new Player(100);
     //public static Player[] = {p,d};
     
-    public void game() {
-	while(player.input("play next round? y/n").equals("y")) {
-	    int bet = Integer.parseInt(player.input("bet # - positive integers you can afford")); 
+    public static void game() {
+	while(p.input("play next round? y/n").equals("y")) {
+	    int bet = Integer.parseInt(p.input("bet # - positive integers you can afford")); 
 	    System.out.println("round start");
 	    round();
 	}
     }
 
-    public String round() {	    
+    public static String round() {	    
 	for(int i = 0; i < 2; i++) {
 	    d.add(_d.deal());
 	    p.add(_d.deal());
 	}
-	player.print();
+	p.print();
 	dealer.print();
 	if(!check().equals("c")) return check();
-	player();
+	p();
 	if(!check().equals("c")) return check();
 	dealer();
-	end();
+	return end();
     }
 
-    public void player() {
+    public static void player() {
 	System.out.println("turn start");
-	while(!player.input("hit stand help quit").equals("stand")) {
+	while(!p.input("hit stand help quit").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();
 	    if(!check().equals("c")) return;
 	}
     }
 
-    public void dealer() {
+    public static void dealer() {
 	System.out.println("dealer move");
-	while(dealer.sum() < 17) {
+	while(d.sum() < 17) {
 	    d.add(_d.deal());
 	    d.print();
 	    if(!check().equals("c")) return;
 	}
     }
     
-    public String check() {
-	if (player.sum() == 21) {
+    public static String check() {
+	if (p.sum() == 21) {
 	    System.out.println("blackjack! you win");
-	    return "bj";
+	    return "b";
 	}
-	else if (dealer.sum() == 21) {
+	else if (d.sum() == 21) {
 	    System.out.println("dealer has blackjack. you lose.");
 	    return "d";
 	}
-	else if (player.sum() > 21) {
+	else if (p.sum() > 21) {
 	    System.out.println("bust. you lose.");
-	    return "b";
+	    return "d";
 	}
-	else if (dealer.sum() > 21) {
+	else if (d.sum() > 21) {
 	    System.out.println("dealer bust. you win");
-	    return "db";
+	    return "p";
 	}
 	return "c";
+    }
+
+    public static String end() {
+	if(p.sum() > d.sum()) {
+	    System.out.println("you win.");
+	    return "p";
+	}
+	if(p.sum() == d.sum()) {
+	    System.out.println("tie");
+	    return "t";
+	}
+	if(p.sum() < d.sum()) {
+	    System.out.println("you lose");
+	    return "d";
+	}
+	return "????";
     }
     
     /*
@@ -72,17 +88,6 @@ public class MVP {
 	dealer();
     }
     */
-    public void player(); {
-	String s = player.input("hit, stand, quit, help:");
-	if (s.equals("help")) help();
-	else if (s.equals("quit")) System.exit(0);
-	else if (s.equals("hit")) {
-	}
-	else if (s.equals("stand")) {
-	    
-	}
-	
-    }
 
     public static void main(String[] args) {
 	System.out.println( "===============================================" );
