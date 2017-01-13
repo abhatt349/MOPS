@@ -4,18 +4,18 @@ public class Player {
     public ArrayList<String> cards;
     public int money;
     public Player(int val) {
-	cards = new ArrayList<String>();
+	cards = new ArrayList<String>(2);
 	money = val;
     }
     public String input(String prompt) {
-	System.out.println(prompt);
+	System.out.print(prompt + " ");
 	return Keyboard.readWord();
     }
     public void add(String card) {
 	cards.add(card);
     }
     public void print() {
-	System.out.println("Player money: "+money+"\nCards: "+cards);
+	System.out.println("player: "+cards);
     }
     public int sum() {
 	int retInt = 0;

@@ -5,9 +5,9 @@ public class MVP {
     //public static Player[] = {p,d};
     
     public static void game() {
-	while(p.input("play next round? y/n").equals("y")) {
-	    int bet = Integer.parseInt(p.input("bet # - positive integers you can afford")); 
-	    System.out.println("round start");
+	while(p.input("\nplay blackjack? y/n:").equals("y")) {
+	    int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
+	    System.out.println("blackjack: round start");
 	    round();
 	    p.reset();
 	    d.reset();
@@ -22,16 +22,18 @@ public class MVP {
 	}
 	p.print();
 	d.print();
-	if(!check().equals("c")) return check();
+	String c = check();
+	if(!c.equals("c")) return c;
 	player();
-	if(!check().equals("c")) return check();
+	c = check();
+	if(!c.equals("c")) return c;
 	dealer();
 	return end();
     }
 
     public static void player() {
-	System.out.println("turn start");
-	while(!p.input("hit stand help quit").equals("stand")) {
+	System.out.println("\nblackjack: turn start");
+	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();
 	    if(!check().equals("c")) return;
@@ -42,8 +44,12 @@ public class MVP {
 	System.out.println("dealer move");
 	while(d.sum() < 17) {
 	    d.add(_d.deal());
+	    System.out.println("dealer: hit");
 	    d.print();
-	    if(!check().equals("c")) return;
+	    if(!check().equals("c")) {
+		System.out.println("dealer: stand");
+		return;
+	    }
 	}
     }
     
