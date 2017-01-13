@@ -1,23 +1,25 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
 public class Dealer {
-    public String cards;
+    public ArrayList<String> cards;
     public void Dealer () {
-	cards = "";
+	cards = new ArrayList<String>(2);
     }
     public void add(String card) {
-	cards += card;
-	cards += " ";
+	cards.add(card);
     }
     public void print() {
-	System.out.println("Dealer money: "+money+"\nCards: "+cards);
+	System.out.println("Cards: "+cards.toString());
     }
     public int sum() {
 	int retInt = 0;
-	for (int i = 0; i < cards.length()-1; i += 2) {
-	    retInt += Deck.value(cards.substring(i, i+1));
+	for (int i = 0; i < cards.size(); i ++) {
+	    retInt += Deck.value(cards.get(i));
 	}
 	return retInt;
     }
-	
+    public void reset() {
+	cards.clear();
+    }
 }
 

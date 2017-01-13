@@ -1,11 +1,12 @@
 public class Deck {
-    public String[] cards;
-    public int cut;
-    public int marker;
-    public void Deck() {
+    public static String[] cards;
+    public static int cut;
+    public static int marker;
+    public Deck() {
 	cards = new String[52];
 	String[] vals = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 	String[] suits = {"d","c","h","s"};
+	int i = 0;
 	for (String val: vals) {
 	    for (String suit: suits) {
 		cards[i] = val+suit;
@@ -15,11 +16,10 @@ public class Deck {
 	cut = 0;
 	marker = 0;
     }
-    public void Deck(int num) {
+    public Deck(int num) {
 	this();
-	cards = new String[num*52];
     }
-    public void shuffle() {
+    public static void shuffle() {
 	int n = cards.length;
         for (int i = 0; i < n; i++) {
             int s = i + (int) (Math.random()*(n-i));
@@ -29,13 +29,9 @@ public class Deck {
         }
 	cut = cards.length*3/4;
     }
-    public String deal() {
-	if (cut == marker) {
-	    shuffle();
-	    return deal();
-	}
-	marker +=1;
-	return cards[marker];
+    public static String deal() {
+	marker++;
+	return cards[marker-1];
     }
     public static int value(String card) {
 	if (card.substring(0,1).equals("J") || card.substring(0,1).equals("Q") || card.substring(0,1).equals("K")) {
@@ -45,5 +41,11 @@ public class Deck {
 		return 11;
 	}
 	return Integer.parseInt(card.substring(0,1));
+    }
+    public static  void diag() {
+	
+	for (String i : cards) {
+	    System.out.print(i + "  ");
+	}
     }
 }

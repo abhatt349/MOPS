@@ -1,5 +1,5 @@
 public class MVP {
-    public static Deck _d = new Deck();
+    public static Deck _d = new Deck(1);
     public static Dealer d = new Dealer(); //hmmmm
     public static Player p = new Player(100);
     //public static Player[] = {p,d};
@@ -15,15 +15,15 @@ public class MVP {
     }
 
     public static String round() {	    
-	d.shuffle();
+	_d.shuffle();
 	for(int i = 0; i < 2; i++) {
 	    d.add(_d.deal());
 	    p.add(_d.deal());
 	}
 	p.print();
-	dealer.print();
+	d.print();
 	if(!check().equals("c")) return check();
-	p();
+	player();
 	if(!check().equals("c")) return check();
 	dealer();
 	return end();

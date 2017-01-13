@@ -1,10 +1,10 @@
 import cs1.Keyboard;
-
+import java.util.ArrayList;
 public class Player {
-    public String cards;
+    public ArrayList<String> cards;
     public int money;
-    public void Player(int val) {
-	cards = "";
+    public Player(int val) {
+	cards = new ArrayList<String>();
 	money = val;
     }
     public String input(String prompt) {
@@ -12,17 +12,19 @@ public class Player {
 	return Keyboard.readWord();
     }
     public void add(String card) {
-	cards += card;
-	cards += " ";
+	cards.add(card);
     }
     public void print() {
 	System.out.println("Player money: "+money+"\nCards: "+cards);
     }
     public int sum() {
 	int retInt = 0;
-	for (int i = 0; i < cards.length()-1; i += 2) {
-	    retInt += Deck.value(cards.substring(i, i+1));
+	for (int i = 0; i < cards.size(); i++) {
+	    retInt += Deck.value(cards.get(i));
 	}
 	return retInt;
+    }
+    public void reset() {
+	cards.clear();
     }
 }
