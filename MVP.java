@@ -6,7 +6,7 @@ public class MVP {
     
     public static void game() {
 	while(p.input("\nplay blackjack? y/n:").equals("y")) {
-	    int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
+	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
 	    p.reset();
@@ -24,50 +24,53 @@ public class MVP {
 	d.print();
 	String c = check();
 	if(!c.equals("c")) return c;
-	player();
+	String p = player();
+	if(!p.equals("c")) return p;
 	c = check();
 	if(!c.equals("c")) return c;
-	dealer();
+	String dd = dealer();
+	if(!dd.equals("c")) return dd;
 	return end();
     }
 
-    public static void player() {
+    public static String player() {
 	System.out.println("\nblackjack: turn start");
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();
-	    if(!check().equals("c")) return;
+	    String c = check();
+	    if(!c.equals("c")) return c;
 	}
+	return "c";
     }
 
-    public static void dealer() {
-	System.out.println("dealer move");
+    public static String dealer() {
+	System.out.println("");
 	while(d.sum() < 17) {
 	    d.add(_d.deal());
 	    System.out.println("dealer: hit");
 	    d.print();
-	    if(!check().equals("c")) {
-		System.out.println("dealer: stand");
-		return;
-	    }
+	    String c = check();
+	    if(!c.equals("c")) return c;
 	}
+	return "c";
     }
     
     public static String check() {
 	if (p.sum() == 21) {
-	    System.out.println("blackjack! you win");
+	    System.out.println("blackjack: blackjack! you win");
 	    return "b";
 	}
 	else if (d.sum() == 21) {
-	    System.out.println("dealer has blackjack. you lose.");
+	    System.out.println("blackjack: dealer has blackjack. you lose.");
 	    return "d";
 	}
 	else if (p.sum() > 21) {
-	    System.out.println("bust. you lose.");
+	    System.out.println("blackjack: bust. you lose.");
 	    return "d";
 	}
 	else if (d.sum() > 21) {
-	    System.out.println("dealer bust. you win");
+	    System.out.println("blackjack: dealer bust. you win");
 	    return "p";
 	}
 	return "c";
@@ -75,15 +78,15 @@ public class MVP {
 
     public static String end() {
 	if(p.sum() > d.sum()) {
-	    System.out.println("you win.");
+	    System.out.println("blackjack: dealer has less. you win.");
 	    return "p";
 	}
 	if(p.sum() == d.sum()) {
-	    System.out.println("tie");
+	    System.out.println("blackjack: tie");
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
-	    System.out.println("you lose");
+	    System.out.println("blackjack: you lose");
 	    return "d";
 	}
 	return "????";
@@ -105,9 +108,9 @@ public class MVP {
 	System.out.println( "1 player 1 dealer, dealer stands on all 17" );
 	System.out.println( "cards are represented by face value + suit" );
 	System.out.println( "             e.g. Ah for the ace of hearts" );
-	System.out.println( "X means a card is facedown" );
+	//System.out.println( "X means a card is facedown" );
 	System.out.println( "only moves implemented are hit and stand" );
-	System.out.println( "type help for help and quit to quit at any time" );
+	//System.out.println( "type help for help and quit to quit at any time" );
 	game();	
     }
 }

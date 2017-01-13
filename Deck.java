@@ -40,7 +40,7 @@ public class Deck {
 	if (card.substring(0,1).equals("A")) {
 		return 11;
 	}
-	return Integer.parseInt(card.substring(0,1));
+	return Integer.parseInt(card.substring(0,card.length()-1));
     }
     public static  void diag() {
 	
