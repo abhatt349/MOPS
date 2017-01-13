@@ -39,6 +39,7 @@ public class MVP {
 	    if(!check().equals("c")) return false;
 	    else {return true;}
 	}
+	    return true;
     }
 
     public static void dealer() {
