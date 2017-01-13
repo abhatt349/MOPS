@@ -24,19 +24,20 @@ public class MVP {
 	d.print();
 	String c = check();
 	if(!c.equals("c")) return c;
-	player();
+	if (!player()) {return check();} 
 	c = check();
 	if(!c.equals("c")) return c;
 	dealer();
 	return end();
     }
 
-    public static void player() {
+    public static boolean player() {
 	System.out.println("\nblackjack: turn start");
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();
-	    if(!check().equals("c")) return;
+	    if(!check().equals("c")) return false;
+	    else {return true;}
 	}
     }
 
