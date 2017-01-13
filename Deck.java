@@ -35,4 +35,13 @@ public class Deck {
 	marker +=1;
 	return cards[marker];
     }
+    public static int value(String card) {
+	if (card.substring(0,1).equals("J") || card.substring(0,1).equals("Q") || card.substring(0,1).equals("K")) {
+	    return 10;
+	}
+	if (card.substring(0,1).equals("A")) {
+		return 11;
+	}
+	return Integer.parseInt(card.substring(0,1));
+    }
 }
