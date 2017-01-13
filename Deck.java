@@ -2,10 +2,8 @@ public class Deck {
     public String[] cards;
     public int cut;
     public int marker;
-
-    public void Deck(int num) {
-	cards = new String[num*52];
-	int i = 0;
+    public void Deck() {
+	cards = new String[52];
 	String[] vals = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 	String[] suits = {"d","c","h","s"};
 	for (String val: vals) {
@@ -16,6 +14,10 @@ public class Deck {
 	}
 	cut = 0;
 	marker = 0;
+    }
+    public void Deck(int num) {
+	this();
+	cards = new String[num*52];
     }
     public void shuffle() {
 	int n = cards.length;
