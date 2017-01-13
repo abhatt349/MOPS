@@ -1,5 +1,5 @@
 public class MVP {
-    public static Deck _d = new Deck(1,52);
+    public static Deck _d = new Deck(1);
     public static Dealer d = new Dealer(); //hmmmm
     public static Player p = new Player(100);
     //public static Player[] = {p,d};
