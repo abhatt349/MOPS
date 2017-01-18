@@ -1,4 +1,4 @@
-public class MVP {
+public class Woo {
     public static Deck _d = new Deck(1);
     public static Dealer d = new Dealer(); //hmmmm
     public static Player p = new Player(100);
