@@ -6,6 +6,7 @@
 0. compile the driver class `>javac Woo.java`
 0. run the driver file `>java Woo`
 0. Enjoy!
+
 ###Description
 Our project is a simple blackjack game that will allow users to play a typical shoe-game of blackjack from the command line (singleplayer) either 1 on 1 with the dealer or with a chosen number of AI’s. For example, the player can choose to play alongside 3 other AI players, or by themselves.
 The game will allow for all of the typical blackjack commands/actions (bet, hit, stand, split, double down, insurance, surrender).
