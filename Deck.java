@@ -30,6 +30,8 @@ public class Deck {
 	cut = cards.length*3/4;
     }
     public static String deal() {
+	//make two stacks, dealt and used. reshuffle point only recombines undealt and used.
+	
 	marker++;
 	return cards[marker-1];
     }

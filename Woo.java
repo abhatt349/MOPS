@@ -2,10 +2,11 @@ public class Woo {
     public static Deck _d = new Deck(1);
     public static Dealer d = new Dealer(); //hmmmm
     public static Player p = new Player(100);
+    public static int b = 0;
     //public static Player[] = {p,d};
     
     public static void game() {
-	while(p.input("\nplay blackjack? y/n:").equals("y")) {
+	while(p.input("\nplace bet:").equals("y")) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
@@ -95,15 +96,6 @@ public class Woo {
 	return "????";
     }
     
-    /*
-    public void turn() {
-	d.print();
-	p.print();
-	player();
-	dealer();
-    }
-    */
-
     public static void main(String[] args) {
 	System.out.println( "===============================================" );
 	System.out.println( "MVP BlackJack" );
