@@ -123,6 +123,7 @@ public class Blackjack {
 	System.out.println( "BlackJack" );
 	System.out.println( "-----------------------------------------------" );
 	System.out.println( "1 player 1 dealer, dealer stands on all 17" );
+	System.out.println( "Blackjacks pay 3:2");
 	System.out.println( "cards are represented by face value + suit" );
 	System.out.println( "             e.g. Ah for the ace of hearts" );
 	//System.out.println( "X means a card is facedown" );
