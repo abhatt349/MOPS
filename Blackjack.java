@@ -7,13 +7,19 @@ public class Blackjack {
     //public static Player[] = {p,d};
     
     public static void game() {
-	while(p.input("\nwould you like to play another round? type y or n:").equals("y")) {
+	boolean moneyLeft = true;
+	while((p.input("\nwould you like to play another round? type y or n:").equals("y"))&& moneyLeft) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
+	    if (p.money <= 0) {
+		moneyLeft = false;
+	    }
 	    p.reset();
 	    d.reset();
 	}
+	if (!moneyLeft) {
+	    System.out.println("You ran out of money! Thanks for playing!");
      }
 
     public static String round() {	    
