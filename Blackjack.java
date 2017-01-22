@@ -67,18 +67,28 @@ public class Blackjack {
     public static String check() {
 	if (p.sum() == 21) {
 	    System.out.println("blackjack: blackjack! you win");
+	    p.money += bet*2;
+	    bet = 0;
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "b";
 	}
 	else if (d.sum() == 21) {
 	    System.out.println("blackjack: dealer has blackjack. you lose.");
+	    bet = 0;
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "d";
 	}
 	else if (p.sum() > 21) {
 	    System.out.println("blackjack: bust. you lose.");
+	    bet = 0;
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "d";
 	}
 	else if (d.sum() > 21) {
 	    System.out.println("blackjack: dealer bust. you win");
+	    p.money += bet*2;
+	    bet = 0;
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "p";
 	}
 	return "c";
@@ -86,22 +96,22 @@ public class Blackjack {
 
     public static String end() {
 	if(p.sum() > d.sum()) {
-	    bet = 0;
 	    System.out.println("blackjack: dealer has less. you win.");
+	    p.money += bet*2;
+	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
 	    return "p";
 	}
 	if(p.sum() == d.sum()) {
+	    System.out.println("blackjack: tie");
 	    p.money += bet;
 	    bet = 0;
-	    System.out.println("blackjack: tie");
 	    System.out.println("you now have "+p.money+" dollars");
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
-	    p.money += bet*2;
-	    bet = 0;
 	    System.out.println("blackjack: dealer has more. you lose");
+	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
 	    return "d";
 	}
