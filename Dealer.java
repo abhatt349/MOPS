@@ -14,7 +14,7 @@ public class Dealer {
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++ ) {
-	    retInt += Deck.value(cards.get(i));
+	    retInt += cards.get(i).value;
 	}
 	return retInt;
     }

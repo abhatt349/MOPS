@@ -32,26 +32,26 @@ public class Deck {
         }
 	cut = cards.length*3/4;
     }
-    public static String deal() {
+    public static Card deal() {
 	//make two stacks, dealt and used. reshuffle point only recombines undealt and used.
 	
 	marker++;
 	return cards[marker-1];
     }
-    public static int value(Card card) {
-	/*if (card.substring(0,1).equals("J") || card.substring(0,1).equals("Q") || card.substring(0,1).equals("K")) {
+    /* public static int value(Card card) {
+	if (card.substring(0,1).equals("J") || card.substring(0,1).equals("Q") || card.substring(0,1).equals("K")) {
 	    return 10;
 	}
 	if (card.substring(0,1).equals("A")) {
 		return 11;
 	}
-	return Integer.parseInt(card.substring(0,card.length()-1));*/
+	return Integer.parseInt(card.substring(0,card.length()-1));
 	return Card.value;
-    }
-    public static  void diag() {
+    }*/
+    public static void diag() {
 	
-	for (String i : cards) {
-	    System.out.print(i + "  ");
+	for (Card i : cards) {
+	    System.out.print(i.toString() + "  ");
 	}
     }
 }
