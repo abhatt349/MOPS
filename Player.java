@@ -28,5 +28,6 @@ public class Player {
 	cards.clear();
     }
     public int bet() {
+	return 0;
     }
 }
