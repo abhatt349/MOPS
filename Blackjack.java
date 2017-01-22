@@ -7,7 +7,7 @@ public class Blackjack {
     //public static Player[] = {p,d};
     
     public static void game() {
-	while(p.input("\nplace bet:").equals("y")) {
+	while(p.input("\nwould you like to play another round? type y or n:").equals("y")) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
@@ -18,6 +18,9 @@ public class Blackjack {
 
     public static String round() {	    
 	_d.shuffle();
+        bet = Integer.parseInt(p.input("How much would you like to bet? Enter a number between 5 and "+p.money+":"));
+	p.money -= bet;
+	
 	for(int i = 0; i < 2; i++) {
 	    d.add(_d.deal());
 	    p.add(_d.deal());
@@ -83,15 +86,23 @@ public class Blackjack {
 
     public static String end() {
 	if(p.sum() > d.sum()) {
+	    bet = 0;
 	    System.out.println("blackjack: dealer has less. you win.");
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "p";
 	}
 	if(p.sum() == d.sum()) {
+	    p.money += bet;
+	    bet = 0;
 	    System.out.println("blackjack: tie");
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
+	    p.money += bet*2;
+	    bet = 0;
 	    System.out.println("blackjack: dealer has more. you lose");
+	    System.out.println("you now have "+p.money+" dollars");
 	    return "d";
 	}
 	return "????";
