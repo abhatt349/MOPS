@@ -31,8 +31,8 @@ public class Blackjack {
 	if(!c.equals("c")) return c;
 	String p = player();
 	if(!p.equals("c")) return p;
-	//	c = check();
-	//if(!c.equals("c")) return c;
+		c = check();
+	if(!c.equals("c")) return c;
 	String dd = dealer();
 	if(!dd.equals("c")) return dd;
 	return end();
