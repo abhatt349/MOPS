@@ -100,7 +100,7 @@ public class Blackjack {
     public static void main(String[] args) {
 	System.out.println( "===============================================" );
 	System.out.println( "BlackJack" );
-	System.out.println( "-------------------------------------------" );
+	System.out.println( "-----------------------------------------------" );
 	System.out.println( "1 player 1 dealer, dealer stands on all 17" );
 	System.out.println( "cards are represented by face value + suit" );
 	System.out.println( "             e.g. Ah for the ace of hearts" );
