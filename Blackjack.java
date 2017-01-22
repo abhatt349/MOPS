@@ -18,6 +18,7 @@ public class Blackjack {
 
     public static String round() {	    
 	_d.shuffle();
+	System.out.println("You have "+p.money+" dollars right now");
         bet = Integer.parseInt(p.input("How much would you like to bet? Enter a number between 5 and "+p.money+":"));
 	p.money -= bet;
 	
