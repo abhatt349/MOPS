@@ -20,6 +20,7 @@ public class Blackjack {
 	}
 	if (!moneyLeft) {
 	    System.out.println("You ran out of money! Thanks for playing!");
+	}
      }
 
     public static String round() {	    
