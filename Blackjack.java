@@ -67,7 +67,7 @@ public class Blackjack {
     public static String check() {
 	if (p.sum() == 21) {
 	    System.out.println("blackjack: blackjack! you win");
-	    p.money += bet*2;
+	    p.money += bet*3/2;
 	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
 	    return "b";
