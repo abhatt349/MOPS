@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class AI extends User {
-    public static int money = 0;
-    public static Card[] cards;
-    public static int difficulty = 0;
+    public int money = 0;
+    public ArrayList<Card> cards;
+    //public static int difficulty = 0;
     public AI () {
 	money = 100;
-	cards = new Card[2];
+	cards = new ArrayList<Card>(2);
     }
     public void add(Card newCard) {
 	cards.add(newCard);
@@ -12,14 +14,18 @@ public class AI extends User {
     public void reset() {
 	cards.clear();
     }
-    public static int sum() {
+    /*public static int sum() {
 	int s = 0;
 	for(Card i : cards) {
 	    s += i.value;
 	}
 	return s;
     }
-    public static int move(int[] undealt, int dsum) {
+    public static void print() {
+	System.out.println("ai cards: " + cards);
+    }
+    */
+    public int move(int[] undealt, int dsum) {
 	int hitn = 0;
 	int sum = sum();
 	int[] hits = new int[3];

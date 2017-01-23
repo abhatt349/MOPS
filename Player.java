@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Player extends User{
     public ArrayList<Card> cards;
     public int money;
+    public String name = "player";
     public Player(int val) {
 	cards = new ArrayList<Card>(2);
 	money = val;
@@ -14,9 +15,9 @@ public class Player extends User{
     public void add(Card card) {
 	cards.add(card);
     }
-    public void print() {
+    /*public void print() {
 	System.out.println("player: "+cards);
-    }
+	}*/
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++) {

@@ -2,15 +2,14 @@ import cs1.Keyboard;
 import java.util.ArrayList;
 public class Dealer extends User{
     public ArrayList<Card> cards;
+    public String name = "dealer";
     public Dealer() {
 	cards = new ArrayList<Card>(2);
     }
     public void add(Card card) {
 	cards.add(card);
     }
-    public void print() {
-	System.out.println("dealer: " + cards.toString());
-    }
+
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++ ) {
