@@ -47,17 +47,17 @@ public class Blackjack {
      }
 
     public String round() {	    
-	//_d.shuffle();             
+	//_d.shuffle();            we later decided to make Deck automatically shuffle itself         
 	System.out.println("blackjack: You have "+p.money+" dollars");
 	System.out.print("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: ");
         bet = Keyboard.readInt();
-	while(bet < 0 || bet > p.money) {
+	while(bet < 0 || bet > p.money) {   //checks to make sure that the bet is a valid amount
 	    System.out.println("blackjack: invalid bet amount. try again");
-	    bet = Keyboard.readInt();
+	    bet = Keyboard.readInt();       //asks for input again
 	}
-	p.money -= bet;
+	p.money -= bet;                     //puts bet into the pool
 	
-	for(int i = 0; i < 2; i++) {
+	for(int i = 0; i < 2; i++) {             //deals 2 cards to everyone
 	    d.add(_d.deal());
 	    for(int a = 0; a < u.size(); a++) {
 		u.get(a).add(_d.deal());
@@ -66,59 +66,59 @@ public class Blackjack {
 	}
 	System.out.println("-----------------------------------------------");
 	p.print();
-	for(AI i : u) {
+	for(AI i : u) {       //prints the state of everybody on the table
 	    i.print();
 	}
 	d.print();
-	String c = check();
-	//if(!c.equals("c")) return c;
-	String p = player();
-	//if(!p.equals("c")) return p;
-	for(int i = 0; i < u.size(); i++) {
+	String c = check();            //checks to see if round should end
+	//if(!c.equals("c")) return c; //checks to see if round should end
+	String p = player();                   //player takes their turn
+	//if(!p.equals("c")) return p; //checks to see if round should end
+	for(int i = 0; i < u.size(); i++) {    //AI's take their turns
 	    ai(i);
 	}
 	String dd = dealer();
 	//if(!dd.equals("c")) return dd;
-	return end(c,p,dd);
+	return end(c,p,dd);           //calls end() to resolve the round
     }
 
-    public String player() {
-	System.out.println("\nblackjack: turn start (type hit or stand)");
+    public String player() {           //player's turn
+	System.out.println("\nblackjack: turn start (type hit or stand)");   //asks what player wants to do
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
-	    p.print();
-	    String c = check();
+	    p.print();                //reprints state of player
+	    String c = check();       //checks if round should end
 	    if(!c.equals("c")) return c;
 	}
 	p.print();
 	return "c";
     }
 
-    public String dealer() {
+    public String dealer() {       //dealer's turn
 	System.out.println("");
-	while(d.sum() < 17) {
+	while(d.sum() < 17) {      //hit on 16 or below
 	    d.add(_d.deal());
 	    System.out.println("dealer: hit");
 	    d.print();
-	    String c = check();
+	    String c = check();    //checks if round should end
 	    if(!c.equals("c")) return c;
 	}
-	System.out.println("dealer: stand");
-	d.print();
+	System.out.println("dealer: stand");  //stand on all 17 or above
+	d.print();                //prints current state
 	return "c";
     }
     
-    public void ai(int n) {
+    public void ai(int n) {        //AI's turn
 	System.out.println("\nai "+n+"'s turn");
 	//System.out.println(n);
-	//System.out.println(u.get(n));
+	//System.out.println(u.get(n));    diagnostic print statements
 	//System.out.println(d.sum());
 	//System.out.println(_d.undealt());
 	if(d.sum() == 21 && u.get(n).sum() < 21) {
-	    System.out.println("blackjack: ai "+n+" loses");
+	    System.out.println("blackjack: ai "+n+" loses");    //checks for dealer blackjack
 	    return;
 	}
-	int hits = u.get(n).move(_d.undealt(),d.sum());
+	int hits = u.get(n).move(_d.undealt(),d.sum());       //checks hit or stand
 	for(int i = 0; i < hits; i++) {
 	    u.get(n).add(_d.deal());
 	    System.out.println("ai " + n + ": hit");
@@ -139,27 +139,27 @@ public class Blackjack {
 	return;
     }
 
-    public String check() {
-	if (p.sum() == 21) {
+    public String check() {            //method to check whether the round should immediately end
+	if (p.sum() == 21) {           //the case of player blackjack
 	    System.out.println("blackjack: blackjack! you win");
 	    p.money += bet*5/2;
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "bp";
 	}
-	else if (d.sum() == 21) {
+	else if (d.sum() == 21) {      //the case of dealer blackjack
 	    System.out.println("blackjack: dealer has blackjack. you lose.");
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "bd";
 	}
-	else if (p.sum() > 21) {
+	else if (p.sum() > 21) {       //the case of player bust
 	    System.out.println("blackjack: bust. you lose.");
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "pb";
 	}
-	else if (d.sum() > 21) {
+	else if (d.sum() > 21) {       //the case of dealer bust
 	    System.out.println("blackjack: dealer bust. you win");
 	    p.money += bet*2;
 	    bet = 0;
@@ -169,25 +169,25 @@ public class Blackjack {
 	return "c";
     }
 
-    public String end(String fc, String pl, String dl) {
+    public String end(String fc, String pl, String dl) {     //method to resolve round
 	if(fc.equals("bd")) return "";
 	compare();
 	if(pl.equals("pb")) return "";
-	if(p.sum() > d.sum()) {
+	if(p.sum() > d.sum()) {              //case of player win
 	    System.out.println("blackjack: dealer has less. you win.");
 	    p.money += bet*2;
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "p";
 	}
-	else if(p.sum() == d.sum()) {
+	else if(p.sum() == d.sum()) {        //case of tie
 	    System.out.println("blackjack: tie");
 	    p.money += bet;
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "t";
 	}
-	else if(p.sum() < d.sum()) {
+	else if(p.sum() < d.sum()) {        //case of dealer win
 	    System.out.println("blackjack: dealer has more. you lose");
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
@@ -197,17 +197,17 @@ public class Blackjack {
 	return "????";
     }
     
-    public void compare() {
-	for(int i = 0; i < u.size(); i++) {
+    public void compare() {             //checks whether AI's won or lost 
+	for(int i = 0; i < u.size(); i++) {      //case of AI win
 	    if(u.get(i).sum() > d.sum() && u.get(i).sum() < 22) {
 		System.out.println("blackjack: ai " + i + " wins.");
 		u.get(i).money += 10;
 	    }
-	    else if(u.get(i).sum() == d.sum()) {
+	    else if(u.get(i).sum() == d.sum()) {    //case of tie
 		System.out.println("blackjack: ai " + i + " tied with the dealer.");
 		u.get(i).money += 5;
 	    }
-	    else if(u.get(i).sum() < d.sum() && d.sum() < 22) {
+	    else if(u.get(i).sum() < d.sum() && d.sum() < 22) {     //case of dealer win
 		System.out.println("blackjack: ai " + i + " loses.");
 	    }
 	    System.out.println("blackjack: ai " + i + " has " + u.get(i).money + " dollars.");
