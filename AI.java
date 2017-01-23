@@ -49,10 +49,9 @@ public class AI extends User {
 		tsum += undealt[k];
 	    }
 	    int c = 0;
-	    while(dsum < 17) {
+	    while(tdsum < 17) {
 		c++;
 		tdsum += undealt[undealt.length-c];
-		dsum++;
 	    } 
 	    if(tsum < 22 && (tsum > tdsum || dsum > 21)) {
 		hits[i%3] += 1;
