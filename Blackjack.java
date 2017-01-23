@@ -1,13 +1,28 @@
 public class Blackjack {
-    public static int bet = 0;
-    public static Deck _d = new Deck(1);
-    public static Dealer d = new Dealer(); //hmmmm
-    public static Player p = new Player(100);
-    public static int b = 0;
-    //public static Player[] = {p,d};
+    public int bet = 0;
+    public Deck _d = new Deck(1);
+    public Dealer d = new Dealer(); //hmmmm
+    public Player p = new Player(100);
+    public int b = 0;
+    public AI[] u;
     
-    public static void game() {
-	while(p.input("\nwould you like to play another round? type y or n:").equals("y")) {
+    public Blackjack (AI[] ais) {
+	u = ais;
+    }
+
+    public void game() {
+	System.out.println( "===============================================" );
+	System.out.println( "BlackJack" );
+	System.out.println( "-----------------------------------------------" );
+	System.out.println( "Dealer stands on all 17");
+	System.out.println( "Blackjacks pay 3:2");
+	System.out.println( "AI's bet 5 by default");
+	System.out.println( "Cards are represented by face value + suit" );
+	System.out.println( "             e.g. Ah for the ace of hearts" );
+	//System.out.println( "X means a card is facedown" );
+	System.out.println( "Only moves implemented are hit and stand" );
+	//System.out.println( "type help for help and quit to quit at any time" );
+	while(p.input("\nstart round? type y or n:").equals("y")) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
@@ -16,7 +31,7 @@ public class Blackjack {
 	}
      }
 
-    public static String round() {	    
+    public String round() {	    
 	_d.shuffle();
 	System.out.println("You have "+p.money+" dollars right now");
         bet = Integer.parseInt(p.input("How much would you like to bet? Enter a number between 5 and "+p.money+":"));
@@ -32,14 +47,15 @@ public class Blackjack {
 	if(!c.equals("c")) return c;
 	String p = player();
 	if(!p.equals("c")) return p;
-		c = check();
-	if(!c.equals("c")) return c;
+	for(int i = 0; i < u.length; i++) {
+	    ai(i);
+	}
 	String dd = dealer();
 	if(!dd.equals("c")) return dd;
 	return end();
     }
 
-    public static String player() {
+    public String player() {
 	System.out.println("\nblackjack: turn start");
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
@@ -51,7 +67,7 @@ public class Blackjack {
 	return "c";
     }
 
-    public static String dealer() {
+    public String dealer() {
 	System.out.println("");
 	while(d.sum() < 17) {
 	    d.add(_d.deal());
@@ -65,7 +81,24 @@ public class Blackjack {
 	return "c";
     }
     
-    public static String check() {
+    public void ai(int n) {
+	System.out.println("");
+	int hits = u[n].move();
+	for(int i = 0; i < hits; i++) {
+	    u[n].add(_d.deal());
+	    System.out.println("ai " + n + ": hit");
+	    u[n].print();
+	    if(!check(n)) {
+		u[n].money = u[n].money - 5;
+		System.out.println("ai " + n + ": bust");
+		return;
+	    }
+	}
+	System.out.println("ai " + n + ": stand");
+	return;
+    }
+
+    public String check() {
 	if (p.sum() == 21) {
 	    System.out.println("blackjack: blackjack! you win");
 	    p.money += bet*3/2;
@@ -95,7 +128,9 @@ public class Blackjack {
 	return "c";
     }
 
-    public static String end() {
+    public boolean check(int i);
+
+    public String end() {
 	if(p.sum() > d.sum()) {
 	    System.out.println("blackjack: dealer has less. you win.");
 	    p.money += bet*2;
@@ -116,20 +151,11 @@ public class Blackjack {
 	    System.out.println("you now have "+p.money+" dollars");
 	    return "d";
 	}
+	
 	return "????";
     }
     
     public static void main(String[] args) {
-	System.out.println( "===============================================" );
-	System.out.println( "BlackJack" );
-	System.out.println( "-----------------------------------------------" );
-	System.out.println( "1 player 1 dealer, dealer stands on all 17" );
-	System.out.println( "Blackjacks pay 3:2");
-	System.out.println( "cards are represented by face value + suit" );
-	System.out.println( "             e.g. Ah for the ace of hearts" );
-	//System.out.println( "X means a card is facedown" );
-	System.out.println( "only moves implemented are hit and stand" );
-	//System.out.println( "type help for help and quit to quit at any time" );
-	game();	
+	//none
     }
 }
