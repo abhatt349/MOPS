@@ -60,6 +60,13 @@ public class Deck {
 	used[marker-1] = cards[marker-1];
 	return cards[marker-1];
     }
+    public int[] undealt() {
+	int[] retArr = new int[cards.length-marker];
+	for (int i = 0; i<retArr.length;i++) {
+	    retArr[i] = cards[marker+i].value;
+	}
+	return retArr;
+    }
     /* public static int value(Card card) {
 	if (card.substring(0,1).equals("J") || card.substring(0,1).equals("Q") || card.substring(0,1).equals("K")) {
 	    return 10;
