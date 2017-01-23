@@ -31,7 +31,7 @@ public class Blackjack {
 		moneyLeft = false;
 	    }
 	    p.reset();
-	    for(int i = 0; i < u.length(); i++) {
+	    for(int i = 0; i < u.length; i++) {
 		u[i].reset();
 	    }
 	    d.reset();

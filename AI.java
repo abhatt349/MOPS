@@ -19,9 +19,9 @@ public class AI {
 	int[] hits = new int[3];
 	for(int i = 0; i < 3000; i++) {
 	    for (int j = 0; j < undealt.length; j++) {
-		int s = i + (int) (Math.random()*(n-i));
-		int temp = undealt[i];
-		undealt[i] = undealt[s];
+		int s = j + (int) (Math.random()*(undealt.length-j));
+		int temp = undealt[j];
+		undealt[j] = undealt[s];
 		undealt[s] = temp;
 	    }
 	    int tsum = sum;
@@ -37,7 +37,7 @@ public class AI {
 		hits[i%3] += 1;
 	    }
 	}
-	int max = Math.max(hits[0],Math.max(hits[1],hits[2]));
-	return hits.indexOf(max);
+	//int max = Math.max(hits[0],Math.max(hits[1],hits[2]));
+	return hits[0] > (Math.max(hits[1],hits[2])) ? 0 : (hits[1] > hits[2] ? 1 : 2);
     }
 }
