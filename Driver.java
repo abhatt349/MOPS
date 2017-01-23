@@ -38,16 +38,18 @@ public class Driver {
 	if(input == Integer.MIN_VALUE) {
 	    System.out.println("driver: invalid number. please input and integer between 1 and 5 inclusive");
 	    ai();
-	} else {
-	    return input;
 	}
-	return 0;
+	return input;
     }
     public static void main(String[] args) {
 	menu();
 	if(response().equals("q")) return;
 	int n = ai();
 	ArrayList<AI> u = new ArrayList<AI>(n);
+	for(int i = 0; i < n; i++) {
+	    AI aa = new AI(i);
+	    u.add(aa);
+	}
 	Blackjack b = new Blackjack(u);
 	b.game();
     }

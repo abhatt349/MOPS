@@ -1,12 +1,18 @@
 import java.util.ArrayList;
 
 public class AI extends User {
+    public int id;
     public int money = 0;
     public ArrayList<Card> cards;
     //public static int difficulty = 0;
     public AI () {
 	money = 100;
 	cards = new ArrayList<Card>(2);
+    }
+    public AI (int i) {
+	money = 100;
+	cards = new ArrayList<Card>(2);
+	id = i;
     }
     public void add(Card newCard) {
 	cards.add(newCard);
@@ -23,7 +29,7 @@ public class AI extends User {
     }
     */
     public void print() {
-	System.out.println("ai cards: " + cards);
+	System.out.println("ai " + id + ": " + cards);
     }
     
     public int move(int[] undealt, int dsum) {

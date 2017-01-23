@@ -53,15 +53,21 @@ public class Blackjack {
 	
 	for(int i = 0; i < 2; i++) {
 	    d.add(_d.deal());
+	    for(int a = 0; a < u.size(); a++) {
+		u.get(a).add(_d.deal());
+	    }
 	    p.add(_d.deal());
 	}
 	p.print();
+	for(AI i : u) {
+	    i.print();
+	}
 	d.print();
 	String c = check();
 	if(!c.equals("c")) return c;
 	String p = player();
 	if(!p.equals("c")) return p;
-	for(int i = 0; i < u.length; i++) {
+	for(int i = 0; i < u.size(); i++) {
 	    ai(i);
 	}
 	String dd = dealer();
