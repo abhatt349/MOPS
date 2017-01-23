@@ -4,9 +4,9 @@ public class Blackjack {
     public Dealer d = new Dealer(); //hmmmm
     public Player p = new Player(100);
     public int b = 0;
-    public AI[] u;
+    public ArrayList<AI> u;
     
-    public Blackjack (AI[] ais) {
+    public Blackjack (ArrayList<AI> ais) {
 	u = ais;
     }
 
@@ -31,11 +31,11 @@ public class Blackjack {
 		moneyLeft = false;
 	    }
 	    p.reset();
-	    for(int i = 0; i < u.length; i++) {
+	    for(int i = 0; i < u.size(); i++) {
 		System.out.println(u);
-		System.out.println(u[i]);
+		System.out.println(u.get(i));
 		System.out.println(i);
-		u[i].reset();
+		u.get(i).reset();
 	    }
 	    d.reset();
 	}
@@ -97,20 +97,20 @@ public class Blackjack {
     public void ai(int n) {
 	System.out.println("");
 	System.out.println(n);
-	System.out.println(u[n]);
+	System.out.println(u.get(n));
 	System.out.println(d.sum());
 	System.out.println(_d.undealt());
-	int hits = u[n].move(_d.undealt(),d.sum());
+	int hits = u.get(n).move(_d.undealt(),d.sum());
 	for(int i = 0; i < hits; i++) {
-	    u[n].add(_d.deal());
+	    u.get(n).add(_d.deal());
 	    System.out.println("ai " + n + ": hit");
-	    u[n].print();
-	    if(u[n].sum() == 21) {
+	    u.get(n).print();
+	    if(u.get(n).sum() == 21) {
 		System.out.println("ai " + n + ": stand");
 		return;
 	    }	
-	    else if(u[n].sum() > 21) {
-		u[n].money = u[n].money - 5;
+	    else if(u.get(n).sum() > 21) {
+		u.get(n).money = u.get(n).money - 5;
 		System.out.println("ai " + n + ": bust");
 		return;
 	    }
@@ -178,18 +178,18 @@ public class Blackjack {
     }
     
     public void compare() {
-	for(int i = 0; i < u.length; i++) {
-	    if(u[i].sum() < d.sum()) {
+	for(int i = 0; i < u.size(); i++) {
+	    if(u.get(i).sum() < d.sum()) {
 		System.out.println("blackjack: ai " + i + " wins.");
-		u[i].money += 10;
+		u.get(i).money += 10;
 		return;
 	    }
-	    else if(u[i].sum() == d.sum()) {
+	    else if(u.get(i).sum() == d.sum()) {
 		System.out.println("blackjack: ai " + i + " tied with the dealer.");
-		u[i].money += 5;
+		u.get(i).money += 5;
 		return;
 	    }
-	    else if(u[i].sum() >= d.sum()) {
+	    else if(u.get(i).sum() >= d.sum()) {
 		System.out.println("blackjack: ai " + i + " loses.");
 		return;		
 	    }
