@@ -35,7 +35,7 @@ public class Driver {
 	System.out.println("driver: Enter a number of AI's to add (between 1 and 5 inclusive)");
 	System.out.print("player: ");
 	int input = Keyboard.readInt();
-	if(input == Integer.MIN_VALUE) {
+	if(input < 0 || input > 5) {
 	    System.out.println("driver: invalid number. please input and integer between 1 and 5 inclusive");
 	    ai();
 	}
