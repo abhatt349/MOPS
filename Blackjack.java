@@ -93,7 +93,7 @@ public class Blackjack {
     
     public void ai(int n) {
 	System.out.println("");
-	int hits = u[n].move();
+	int hits = u[n].move(_d.undealt(),d.sum());
 	for(int i = 0; i < hits; i++) {
 	    u[n].add(_d.deal());
 	    System.out.println("ai " + n + ": hit");
