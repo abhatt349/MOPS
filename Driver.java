@@ -25,6 +25,7 @@ public class Driver {
 	    System.out.println("Blackjack means you win 1.5 the amount of your bet.");
 	    System.out.println("Dealer will hit until his/her cards total 17 or higher.");
 	    System.out.print("------------------\nuser: ");
+	    menu();
 	    return response();
 	}
 	else if (input.equals("q")) {
