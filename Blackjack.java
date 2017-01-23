@@ -49,7 +49,7 @@ public class Blackjack {
     public String round() {	    
 	//_d.shuffle();             
 	System.out.println("blackjack: You have "+p.money+" dollars");
-	System.out.println("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: ");
+	System.out.print("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: ");
         bet = Keyboard.readInt();
 	while(bet < 0 || bet > p.money) {
 	    System.out.println("blackjack: invalid bet amount. try again");
