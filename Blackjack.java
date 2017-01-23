@@ -58,6 +58,7 @@ public class Blackjack {
 	    }
 	    p.add(_d.deal());
 	}
+	System.out.println("-----------------------------------------------");
 	p.print();
 	for(AI i : u) {
 	    i.print();
