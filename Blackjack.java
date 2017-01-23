@@ -31,6 +31,9 @@ public class Blackjack {
 		moneyLeft = false;
 	    }
 	    p.reset();
+	    for(int i = 0; i < u.length(); i++) {
+		u[i].reset();
+	    }
 	    d.reset();
 	}
 	if (!moneyLeft) {
@@ -95,7 +98,11 @@ public class Blackjack {
 	    u[n].add(_d.deal());
 	    System.out.println("ai " + n + ": hit");
 	    u[n].print();
-	    if(!check(n)) {
+	    if(u[n].sum() == 21) {
+		System.out.println("ai " + n + ": stand");
+		return;
+	    }	
+	    else if(u[n].sum() > 21) {
 		u[n].money = u[n].money - 5;
 		System.out.println("ai " + n + ": bust");
 		return;
@@ -135,14 +142,13 @@ public class Blackjack {
 	return "c";
     }
 
-    public boolean check(int i);
-
     public String end() {
 	if(p.sum() > d.sum()) {
 	    System.out.println("blackjack: dealer has less. you win.");
 	    p.money += bet*2;
 	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
+	    compare();
 	    return "p";
 	}
 	if(p.sum() == d.sum()) {
@@ -150,18 +156,39 @@ public class Blackjack {
 	    p.money += bet;
 	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
+	    compare();
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
 	    System.out.println("blackjack: dealer has more. you lose");
 	    bet = 0;
 	    System.out.println("you now have "+p.money+" dollars");
+	    compare();
 	    return "d";
 	}
 	
 	return "????";
     }
     
+    public void compare() {
+	for(int i = 0; i < u.length; i++) {
+	    if(u[i].sum() < d.sum()) {
+		System.out.println("blackjack: ai " + i + " wins.");
+		u[i].money += 10;
+		return;
+	    }
+	    else if(u[i].sum == d.sum()) {
+		System.out.println("blackjack: ai " + i + " tied with the dealer.");
+		u[i].money += 5;
+		return;
+	    }
+	    else if(u[i].sum >= d.sum()) {
+		System.out.println("blackjack: ai " + i + " loses.");
+		return;		
+	    }
+	}
+    }
+
     public static void main(String[] args) {
 	//none
     }
