@@ -24,7 +24,7 @@ public class Blackjack {
 	System.out.println( "Only moves implemented are hit and stand" );
 	//System.out.println( "type help for help and quit to quit at any time" );
 	boolean moneyLeft = true;
-	while(moneyLeft&&(p.input("play a round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
+	while(moneyLeft&&(p.input("blackjack: play a round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
@@ -41,14 +41,14 @@ public class Blackjack {
 	    d.reset();
 	}
 	if (!moneyLeft) {
-	    System.out.println("You ran out of money! Thanks for playing!");
+	    System.out.println("blackjack: You ran out of money! Thanks for playing!");
 	}
      }
 
     public String round() {	    
 	_d.shuffle();
-	System.out.println("You have "+p.money+" dollars right now");
-        bet = Integer.parseInt(p.input("How much would you like to bet? Enter a number between 5 and "+p.money+":"));
+	System.out.println("blackjack: You have "+p.money+" dollars right now");
+        bet = Integer.parseInt(p.input("blackjack: How much would you like to bet? Enter a number between 5 and "+p.money+":"));
 	p.money -= bet;
 	
 	for(int i = 0; i < 2; i++) {
@@ -131,26 +131,26 @@ public class Blackjack {
 	    System.out.println("blackjack: blackjack! you win");
 	    p.money += bet*3/2;
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "b";
 	}
 	else if (d.sum() == 21) {
 	    System.out.println("blackjack: dealer has blackjack. you lose.");
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "d";
 	}
 	else if (p.sum() > 21) {
 	    System.out.println("blackjack: bust. you lose.");
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "d";
 	}
 	else if (d.sum() > 21) {
 	    System.out.println("blackjack: dealer bust. you win");
 	    p.money += bet*2;
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "p";
 	}
 	return "c";
@@ -161,7 +161,7 @@ public class Blackjack {
 	    System.out.println("blackjack: dealer has less. you win.");
 	    p.money += bet*2;
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    compare();
 	    return "p";
 	}
@@ -169,14 +169,14 @@ public class Blackjack {
 	    System.out.println("blackjack: tie");
 	    p.money += bet;
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    compare();
 	    return "t";
 	}
 	if(p.sum() < d.sum()) {
 	    System.out.println("blackjack: dealer has more. you lose");
 	    bet = 0;
-	    System.out.println("you now have "+p.money+" dollars");
+	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    compare();
 	    return "d";
 	}
