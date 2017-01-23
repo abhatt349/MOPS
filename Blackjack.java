@@ -180,14 +180,14 @@ public class Blackjack {
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "p";
 	}
-	if(p.sum() == d.sum()) {
+	else if(p.sum() == d.sum()) {
 	    System.out.println("blackjack: tie");
 	    p.money += bet;
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "t";
 	}
-	if(p.sum() < d.sum()) {
+	else if(p.sum() < d.sum()) {
 	    System.out.println("blackjack: dealer has more. you lose");
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
