@@ -1,6 +1,7 @@
 import cs1.Keyboard;
 import java.util.ArrayList;
 public class Woo {
+    public static Blackjack b;
     public static void menu() { //first menu encountered when they enter the game
 	System.out.println("Blackjack Menu");
 	System.out.println("n:new game");  //start a game
@@ -45,22 +46,28 @@ public class Woo {
 	System.out.print("player: ");
 	int input = Keyboard.readInt();
 	if(input < 0 || input > 5) {  //accounts for user incompetence
-	    System.out.println("driver: invalid number. please input an integer between 1 and 5 inclusive");
+	    System.out.println("driver: invalid number. please try again");
 	    return ai();              //loops back around, asking for input again
 	}
 	return input;                 //returns user-inputted number
     }
-    public static void main(String[] args) {
+    public static boolean runner() {
 	menu();                                  //displays menu
-	if(response().equals("q")) return;       //exits if user wants to quit
+	if(response().equals("q")) return false;       //exits if user wants to quit
 	int n = ai();
 	ArrayList<AI> u = new ArrayList<AI>(n);  //creates ArrayList of AI's
 	for(int i = 0; i < n; i++) {             //fills ArrayList
 	    AI aa = new AI(i);
 	    u.add(aa);
 	}
-	Blackjack b = new Blackjack(u);
-	b.game();                                //calls game runner
+	b = new Blackjack(u);
+	return true;
+    }
+
+    public static void main(String[] args) {
+	while(runner()) {
+	    b.game();                                //calls game runner
+	}
     }
 }
 	

@@ -25,7 +25,8 @@ public class Blackjack {
 	System.out.println( "Only moves implemented are hit and stand" );   //we ran out of time, so we couldn't implement the other options
 	//System.out.println( "type help for help and quit to quit at any time" );   we decided to create a menu for this at the beginning, to keep things more organized
 	boolean moneyLeft = true;
-	while(moneyLeft&&(p.input("blackjack: play a round? type y or n:\nplayer: ").equals("y"))) { //boolean short circuiting to the rescue!
+	String nextround = p.input("blackjack: play a round? type y or n:\nplayer: "); //boolean short circuiting to the rescue! 
+	while(moneyLeft&&(nextround.equals("y"))) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); we decided to add betting into a different place
 	    System.out.println("blackjack: round start");
 	    round();                    //calls round(), which plays one round of blackjack
@@ -40,6 +41,7 @@ public class Blackjack {
 		u.get(i).reset();
 	    }
 	    d.reset();
+	    nextround = p.input("blackjack: play a round? type y or n:\nplayer: ");
 	}
 	if (!moneyLeft) {               //in the case that you don't have enought money, the game end
 	    System.out.println("blackjack: You ran out of money! Thanks for playing!");
@@ -84,14 +86,22 @@ public class Blackjack {
 
     public String player() {           //player's turn
 	System.out.println("\nblackjack: turn start (type hit or stand)");   //asks what player wants to do
-	while(!p.input("player:").equals("stand")) {
+	String in = p.input("player:");
+	while(in.equals("hit")) {
 	    p.add(_d.deal());
 	    p.print();                //reprints state of player
 	    String c = check();       //checks if round should end
 	    if(!c.equals("c")) return c;
+	    in = p.input("player:");
 	}
-	p.print();
-	return "c";
+	if(in.equals("stand")) {
+	    p.print();
+	    return "c";
+	}
+	else {
+	    System.out.println("blackjack: that is not a move option. try again");
+	    return player();
+	}
     }
 
     public String dealer() {       //dealer's turn
