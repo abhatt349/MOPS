@@ -5,7 +5,6 @@ pd 3
 ---------------------
 Blackjack
 
-
 devlog--
 Use keyboard shortcut to jump to end,
  replicate entry template,
@@ -21,27 +20,28 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We made a successful UML diagram!!!
+
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wow! oo!...
+
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-we changed ___ to ___ bc...
+eliminated ai difficulty options - too difficult to create variation for very simple ai
+eliminated save & tables menu - order of operations in the game runner took priority
+eliminated split, double down, and insurance functionality - conflicted with move order & structure
+merged ai menu with driver file - additional class for taking a number input seemed excessive
+
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
-
-
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
@@ -71,3 +71,4 @@ Both :: Created flowchart to visually represent the state of the driver method t
 Both :: Started filling out devlog (more Aryan)
 Aryan :: updated gitignore.txt file
 ==============================================================
+
