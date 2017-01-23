@@ -46,7 +46,7 @@ public class Driver {
 	menu();
 	if(response().equals("q")) return;
 	int n = ai();
-	AI[] u = new AI[n];
+	ArrayList<AI> u = new ArrayList<AI>(n);
 	Blackjack b = new Blackjack(u);
 	b.game();
     }
