@@ -61,7 +61,7 @@ public class Blackjack {
 	if(!c.equals("c")) return c;
 	String p = player();
 	if(!p.equals("c")) return p;
-	for(int i = 0; i < u.length; i++) {
+	for(int i = 0; i < u.size(); i++) {
 	    ai(i);
 	}
 	String dd = dealer();
