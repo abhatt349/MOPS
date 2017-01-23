@@ -32,7 +32,7 @@ public class AI extends User {
 	System.out.println("ai " + id + ": " + cards);
     }
     
-    public int move(int[] undealt, int dsum) {
+    public int move(int[] undealt, int dsum) {   //method to calculate whether the AI should hit or stand
 	int hitn = 0;
 	int sum = sum();
 	int[] hits = new int[3];
