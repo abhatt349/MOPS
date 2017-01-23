@@ -47,8 +47,8 @@ public class Blackjack {
 
     public String round() {	    
 	_d.shuffle();
-	System.out.println("blackjack: You have "+p.money+" dollars right now");
-        bet = Integer.parseInt(p.input("blackjack: How much would you like to bet? Enter a number between 5 and "+p.money+"\nplayer: "));
+	System.out.println("blackjack: You have "+p.money+" dollars");
+        bet = Integer.parseInt(p.input("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: "));
 	p.money -= bet;
 	
 	for(int i = 0; i < 2; i++) {
