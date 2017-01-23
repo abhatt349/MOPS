@@ -1,6 +1,6 @@
 import cs1.Keyboard;
 import java.util.ArrayList;
-public class Driver {
+public class Woo {
     public static void menu() { //first menu encountered when they enter the game
 	System.out.println("Blackjack Menu");
 	System.out.println("n:new game");  //start a game
