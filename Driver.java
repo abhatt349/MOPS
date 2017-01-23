@@ -6,7 +6,7 @@ public class Driver {
 	System.out.println("n:new game");
 	System.out.println("h:help");
 	System.out.println("q:quit");
-	System.out.print("user: ");
+	System.out.print("player: ");
     }
     
     public static String response() {
@@ -33,7 +33,7 @@ public class Driver {
     }
     public static int ai() {
 	System.out.println("driver: how many ai's would you like to add? input an integer between 1 and 5 inclusive");
-	System.out.print("user: ");
+	System.out.print("player: ");
 	int input = Keyboard.readInt();
 	if(input == Integer.MIN_VALUE) {
 	    System.out.println("driver: invalid number. please input and integer between 1 and 5 inclusive");
