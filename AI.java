@@ -50,6 +50,7 @@ public class AI extends User {
 	    }
 	    int c = 0;
 	    while(dsum < 17) {
+		c++;
 		tdsum += undealt[undealt.length-c];
 	    } 
 	    if(tsum < 22 && (tsum > tdsum || dsum > 21)) {
