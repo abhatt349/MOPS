@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import cs1.Keyboard;
 public class Blackjack {
     public int bet = 0;
-    public Deck _d = new Deck(1);
-    public Dealer d = new Dealer(); //hmmmm
+    public Deck _d = new Deck(1);        //we decided that in order to easily facilitate card counting, we'd only let the user play with one deck
+    public Dealer d = new Dealer(); 
     public Player p = new Player(100);
     public int b = 0;
     public ArrayList<AI> u;
     
     public Blackjack (ArrayList<AI> ais) {
-	u = ais;
+	u = ais;                                //takes the ArrayList of AI's initialized in class Driver
     }
 
-    public void game() {
+    public void game() {                        //the actual game itself
 	System.out.println( "===============================================" );
 	System.out.println( "BlackJack" );
 	System.out.println( "-----------------------------------------------" );
@@ -21,33 +21,33 @@ public class Blackjack {
 	System.out.println( "AI's bet 5 by default");
 	System.out.println( "Cards are represented by face value + suit" );
 	System.out.println( "             e.g. Ah for the ace of hearts" );
-	//System.out.println( "X means a card is facedown" );
-	System.out.println( "Only moves implemented are hit and stand" );
-	//System.out.println( "type help for help and quit to quit at any time" );
+	//System.out.println( "X means a card is facedown" );           this became unnecessary because we decided to leave all cards face up
+	System.out.println( "Only moves implemented are hit and stand" );   //we ran out of time, so we couldn't implement the other options
+	//System.out.println( "type help for help and quit to quit at any time" );   we decided to create a menu for this at the beginning, to keep things more organized
 	boolean moneyLeft = true;
 	while(moneyLeft&&(p.input("blackjack: play a round? type y or n:\nplayer: ").equals("y"))) { //boolean short circuiting to the rescue!
-	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
+	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); we decided to add betting into a different place
 	    System.out.println("blackjack: round start");
-	    round();
-	    if (p.money < 5) {
+	    round();                    //calls round(), which plays one round of blackjack
+	    if (p.money < 5) {          //makes sure you have enough money to play
 		moneyLeft = false;
 	    }
 	    p.reset();
 	    for(int i = 0; i < u.size(); i++) {
 		//System.out.println(u);
-		//System.out.println(u.get(i));
+		//System.out.println(u.get(i));    diagnostic print statements
 		//System.out.println(i);
 		u.get(i).reset();
 	    }
 	    d.reset();
 	}
-	if (!moneyLeft) {
+	if (!moneyLeft) {               //in the case that you don't have enought money, the game end
 	    System.out.println("blackjack: You ran out of money! Thanks for playing!");
 	}
      }
 
     public String round() {	    
-	_d.shuffle();
+	//_d.shuffle();             
 	System.out.println("blackjack: You have "+p.money+" dollars");
 	System.out.println("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: ");
         bet = Keyboard.readInt();
@@ -142,7 +142,7 @@ public class Blackjack {
     public String check() {
 	if (p.sum() == 21) {
 	    System.out.println("blackjack: blackjack! you win");
-	    p.money += bet*3/2;
+	    p.money += bet*5/2;
 	    bet = 0;
 	    System.out.println("blackjack: you now have "+p.money+" dollars");
 	    return "bp";
