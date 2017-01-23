@@ -8,7 +8,7 @@ public class Blackjack {
     
     public static void game() {
 	boolean moneyLeft = true;
-	while((p.input("\nwould you like to play another round? type y or n:").equals("y"))&& moneyLeft) {
+	while(moneyLeft&&(p.input("\nwould you like to play another round? type y or n:").equals("y"))) {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
