@@ -32,7 +32,7 @@ public class Driver {
 	//return "???";
     }
     public static int ai() {
-	System.out.println("driver: how many ai's would you like to add? input an integer between 1 and 5 inclusive");
+	System.out.println("driver: Enter a number of AI's to add (between 1 and 5 inclusive)");
 	System.out.print("player: ");
 	int input = Keyboard.readInt();
 	if(input == Integer.MIN_VALUE) {
