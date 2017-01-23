@@ -48,6 +48,7 @@ public class Driver {
 	int n = ai();
 	AI[] u = new AI[n];
 	Blackjack b = new Blackjack(u);
+	b.game();
     }
 }
 	

@@ -6,9 +6,6 @@ public abstract class User {
     public void add(Card newCard) {
 	cards.add(newCard);
     }
-    public void print() {
-	System.out.println(name + ": " + cards);
-    }
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++) {

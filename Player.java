@@ -15,9 +15,9 @@ public class Player extends User{
     public void add(Card card) {
 	cards.add(card);
     }
-    /*public void print() {
-	System.out.println("player: "+cards);
-	}*/
+    public void print() {
+	System.out.println("player: "+cards.toString());
+    }
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++) {

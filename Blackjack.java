@@ -23,7 +23,7 @@ public class Blackjack {
 	System.out.println( "Only moves implemented are hit and stand" );
 	//System.out.println( "type help for help and quit to quit at any time" );
 	boolean moneyLeft = true;
-	while(moneyLeft&&(p.input("\nwould you like to play another round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
+	while(moneyLeft&&(p.input("play a round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
@@ -177,12 +177,12 @@ public class Blackjack {
 		u[i].money += 10;
 		return;
 	    }
-	    else if(u[i].sum == d.sum()) {
+	    else if(u[i].sum() == d.sum()) {
 		System.out.println("blackjack: ai " + i + " tied with the dealer.");
 		u[i].money += 5;
 		return;
 	    }
-	    else if(u[i].sum >= d.sum()) {
+	    else if(u[i].sum() >= d.sum()) {
 		System.out.println("blackjack: ai " + i + " loses.");
 		return;		
 	    }

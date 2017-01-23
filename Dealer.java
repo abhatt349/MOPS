@@ -9,7 +9,9 @@ public class Dealer extends User{
     public void add(Card card) {
 	cards.add(card);
     }
-
+    public void print() {
+	System.out.println("dealer: " + cards);
+    }
     public int sum() {
 	int retInt = 0;
 	for (int i = 0; i < cards.size(); i++ ) {
