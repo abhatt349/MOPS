@@ -1,10 +1,16 @@
-public class AI {
+public class AI extends User {
     public static int money = 0;
     public static Card[] cards;
     public static int difficulty = 0;
     public AI () {
 	money = 100;
 	cards = new Card[2];
+    }
+    public void add(Card newCard) {
+	cards.add(newCard);
+    }
+    public void reset() {
+	cards.clear();
     }
     public static int sum() {
 	int s = 0;
