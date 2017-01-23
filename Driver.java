@@ -15,7 +15,15 @@ public class Driver {
 	    return ""; //merged ai menu
 	}
 	else if (input.equals("h")) {
-	    System.out.println("help message here");
+	    System.out.println("The goal of blackjack is to beat the dealer's hand without going over 21.");
+	    System.out.println("Face cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.");
+	    System.out.println("Each player starts with two cards.");
+	    System.out.println("To 'hit' is to ask for another card.");
+	    System.out.println("To 'stand' is to hold your total and end your turn.");
+	    System.out.println("If you go over 21 you bust, and the dealer wins regardless of the dealer's hand.");
+	    System.out.println("If you are dealt 21 from the start (Ace & 10), you got a blackjack.");
+	    System.out.println("Blackjack means you win 1.5 the amount of your bet.");
+	    System.out.println("Dealer will hit until his/her cards total 17 or higher.");
 	    System.out.print("------------------\nuser: ");
 	    return response();
 	}
