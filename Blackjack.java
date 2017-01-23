@@ -24,11 +24,11 @@ public class Blackjack {
 	System.out.println( "Only moves implemented are hit and stand" );
 	//System.out.println( "type help for help and quit to quit at any time" );
 	boolean moneyLeft = true;
-	while(moneyLeft&&(p.input("blackjack: play a round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
+	while(moneyLeft&&(p.input("blackjack: play a round? type y or n:\nplayer: ").equals("y"))) { //boolean short circuiting to the rescue!
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
-	    if (p.money <= 0) {
+	    if (p.money < 5) {
 		moneyLeft = false;
 	    }
 	    p.reset();
@@ -47,8 +47,8 @@ public class Blackjack {
 
     public String round() {	    
 	_d.shuffle();
-	System.out.println("blackjack: You have "+p.money+" dollars right now");
-        bet = Integer.parseInt(p.input("blackjack: How much would you like to bet? Enter a number between 5 and "+p.money+":"));
+	System.out.println("blackjack: You have "+p.money+" dollars");
+        bet = Integer.parseInt(p.input("blackjack: Enter a bet between 5 and "+p.money+"\nplayer: "));
 	p.money -= bet;
 	
 	for(int i = 0; i < 2; i++) {
@@ -58,6 +58,7 @@ public class Blackjack {
 	    }
 	    p.add(_d.deal());
 	}
+	System.out.println("-----------------------------------------------");
 	p.print();
 	for(AI i : u) {
 	    i.print();
