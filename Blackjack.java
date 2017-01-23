@@ -32,6 +32,9 @@ public class Blackjack {
 	    }
 	    p.reset();
 	    for(int i = 0; i < u.length; i++) {
+		System.out.println(u);
+		System.out.println(u[i]);
+		System.out.println(i);
 		u[i].reset();
 	    }
 	    d.reset();
@@ -93,6 +96,10 @@ public class Blackjack {
     
     public void ai(int n) {
 	System.out.println("");
+	System.out.println(n);
+	System.out.println(u[n]);
+	System.out.println(d.sum());
+	System.out.println(_d.undealt());
 	int hits = u[n].move(_d.undealt(),d.sum());
 	for(int i = 0; i < hits; i++) {
 	    u[n].add(_d.deal());

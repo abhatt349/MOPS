@@ -21,10 +21,11 @@ public class AI extends User {
 	}
 	return s;
     }
-    public static void print() {
+    */
+    public void print() {
 	System.out.println("ai cards: " + cards);
     }
-    */
+    
     public int move(int[] undealt, int dsum) {
 	int hitn = 0;
 	int sum = sum();
