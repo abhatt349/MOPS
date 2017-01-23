@@ -77,7 +77,7 @@ public class Blackjack {
     }
 
     public String player() {
-	System.out.println("\nblackjack: turn start");
+	System.out.println("\nblackjack: turn start (type hit or stand)");
 	while(!p.input("player:").equals("stand")) {
 	    p.add(_d.deal());
 	    p.print();

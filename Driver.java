@@ -36,8 +36,8 @@ public class Driver {
 	System.out.print("player: ");
 	int input = Keyboard.readInt();
 	if(input < 0 || input > 5) {
-	    System.out.println("driver: invalid number. please input and integer between 1 and 5 inclusive");
-	    ai();
+	    System.out.println("driver: invalid number. please input an integer between 1 and 5 inclusive");
+	    return ai();
 	}
 	return input;
     }

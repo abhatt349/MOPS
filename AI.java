@@ -49,7 +49,7 @@ public class AI extends User {
 		tsum += undealt[k];
 	    }
 	    int c = 0;
-	    while(dsum < 17) {
+	    while(tdsum < 17) {
 		c++;
 		tdsum += undealt[undealt.length-c];
 	    } 
