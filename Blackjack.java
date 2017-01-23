@@ -28,7 +28,7 @@ public class Blackjack {
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
-	    if (p.money <= 0) {
+	    if (p.money < 5) {
 		moneyLeft = false;
 	    }
 	    p.reset();
