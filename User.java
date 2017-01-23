@@ -3,6 +3,9 @@ import java.util.ArrayList;
 public abstract class User {
     public String name;
     public ArrayList<Card> cards;
+    public User() {
+	cards = new ArrayList<Card>(2);
+    }
     public void add(Card newCard) {
 	cards.add(newCard);
     }
