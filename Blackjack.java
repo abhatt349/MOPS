@@ -22,12 +22,19 @@ public class Blackjack {
 	//System.out.println( "X means a card is facedown" );
 	System.out.println( "Only moves implemented are hit and stand" );
 	//System.out.println( "type help for help and quit to quit at any time" );
-	while(p.input("\nstart round? type y or n:").equals("y")) {
+	boolean moneyLeft = true;
+	while(moneyLeft&&(p.input("\nwould you like to play another round? type y or n:").equals("y"))) { //boolean short circuiting to the rescue!
 	    //int bet = Integer.parseInt(p.input("(doesnt do anything) bet:")); 
 	    System.out.println("blackjack: round start");
 	    round();
+	    if (p.money <= 0) {
+		moneyLeft = false;
+	    }
 	    p.reset();
 	    d.reset();
+	}
+	if (!moneyLeft) {
+	    System.out.println("You ran out of money! Thanks for playing!");
 	}
      }
 
