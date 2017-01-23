@@ -20,14 +20,14 @@ public class AI extends User {
     public void reset() {
 	cards.clear();
     }
-    /*public static int sum() {
+    public int sum() {
 	int s = 0;
 	for(Card i : cards) {
 	    s += i.value;
 	}
 	return s;
     }
-    */
+    
     public void print() {
 	System.out.println("ai " + id + ": " + cards);
     }
