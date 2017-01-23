@@ -1,6 +1,6 @@
 import cs1.Keyboard;
 import java.util.ArrayList;
-public class Player {
+public class Player extends User{
     public ArrayList<Card> cards;
     public int money;
     public Player(int val) {
